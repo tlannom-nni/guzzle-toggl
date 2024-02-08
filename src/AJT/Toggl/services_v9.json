@@ -134,10 +134,7 @@
           "location": "query",
           "description": "Client IDs",
           "required": false,
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
+          "type": "string"
         },
         "active": {
           "location": "query",
