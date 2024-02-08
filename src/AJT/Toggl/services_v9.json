@@ -156,6 +156,12 @@
           "required": true,
           "description": "Numeric ID of the workspace"
         },
+        "name": {
+          "location": "json",
+          "type": "string",
+          "required": true,
+          "description": "Project name"
+        },
         "project": {
           "location": "json",
           "type": "object",
