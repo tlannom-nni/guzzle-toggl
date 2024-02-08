@@ -162,51 +162,45 @@
           "required": true,
           "description": "Project name"
         },
-        "project": {
+        "client_id": {
           "location": "json",
-          "type": "object",
-          "description": "Project Object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "required": true,
-              "description": "The name of the project (string, required, unique for client and workspace)"
-            },
-            "client_id": {
-              "type": "integer",
-              "required": false,
-              "description": "client ID (integer, not required)"
-            },
-            "active": {
-              "type": "boolean",
-              "required": false,
-              "default": true,
-              "description": "whether the project is archived or not (boolean, by default true)"
-            },
-            "is_private": {
-              "type": "boolean",
-              "required": false,
-              "default": true,
-              "description": "whether project is accessible for only project users or for all workspace users (boolean, default true)"
-            },
-            "template": {
-              "type": "boolean",
-              "required": false,
-              "default": false,
-              "description": "whether the project can be used as a template (boolean, not required)"
-            },
-            "template_id": {
-              "type": "integer",
-              "required": false,
-              "description": "id of the template project used on current project's creation"
-            },
-            "billable": {
-              "type": "boolean",
-              "required": false,
-              "default": true,
-              "description": "whether the project is billable or not (boolean, default true, available only for pro workspaces)"
-            }
-          }
+          "type": "integer",
+          "required": false,
+          "description": "client ID (integer, not required)"
+        },
+        "active": {
+          "location": "json",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "description": "whether the project is archived or not (boolean, by default true)"
+        },
+        "is_private": {
+          "location": "json",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "description": "whether project is accessible for only project users or for all workspace users (boolean, default true)"
+        },
+        "template": {
+          "location": "json",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "description": "whether the project can be used as a template (boolean, not required)"
+        },
+        "template_id": {
+          "location": "json",
+          "type": "integer",
+          "required": false,
+          "description": "id of the template project used on current project's creation"
+        },
+        "billable": {
+          "location": "json",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "description": "whether the project is billable or not (boolean, default true, available only for pro workspaces)"
         }
       }
     },
