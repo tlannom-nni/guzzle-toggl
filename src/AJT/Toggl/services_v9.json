@@ -16,22 +16,11 @@
           "required": true,
           "description": "Numeric ID of the workspace"
         },
-        "client": {
+        "name": {
           "location": "json",
-          "type": "object",
-          "description": "Client Object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "required": true,
-              "description": " The name of the client (string, required, unique in workspace)"
-            },
-            "wid": {
-              "type": "integer",
-              "required": true,
-              "description": "workspace ID, where the client will be used (integer, required)"
-            }
-          }
+          "type": "string",
+          "required": true,
+          "description": " The name of the client (string, required, unique in workspace)"
         }
       }
     },
@@ -73,22 +62,11 @@
           "required": true,
           "description": "Client ID"
         },
-        "client": {
+        "name": {
           "location": "json",
-          "type": "object",
-          "description": "Client Object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "required": true,
-              "description": " The name of the client (string, required, unique in workspace)"
-            },
-            "wid": {
-              "type": "integer",
-              "required": true,
-              "description": "workspace ID, where the client will be used (integer, required)"
-            }
-          }
+          "type": "string",
+          "required": true,
+          "description": " The name of the client (string, required, unique in workspace)"
         }
       }
     },
@@ -291,51 +269,48 @@
           "required": true,
           "description": "Numeric ID of the project"
         },
-        "project": {
+        "name": {
           "location": "json",
-          "type": "object",
-          "description": "Project Object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "required": false,
-              "description": "The name of the project (string, not required, unique for client and workspace)"
-            },
-            "client_id": {
-              "type": "integer",
-              "required": false,
-              "description": "client ID (integer, not required)"
-            },
-            "active": {
-              "type": "boolean",
-              "required": false,
-              "default": true,
-              "description": "whether the project is archived or not (boolean, by default true)"
-            },
-            "is_private": {
-              "type": "boolean",
-              "required": false,
-              "default": true,
-              "description": "whether project is accessible for only project users or for all workspace users (boolean, default true)"
-            },
-            "template": {
-              "type": "boolean",
-              "required": false,
-              "default": false,
-              "description": "whether the project can be used as a template (boolean, not required)"
-            },
-            "template_id": {
-              "type": "integer",
-              "required": false,
-              "description": "id of the template project used on current project's creation"
-            },
-            "billable": {
-              "type": "boolean",
-              "required": false,
-              "default": true,
-              "description": "whether the project is billable or not (boolean, default true, available only for pro workspaces)"
-            }
-          }
+          "type": "string",
+          "required": false,
+          "description": "The name of the project (string, not required, unique for client and workspace)"
+        },
+        "client_id": {
+          "location": "json",
+          "type": "integer",
+          "required": false,
+          "description": "client ID (integer, not required)"
+        },
+        "active": {
+          "location": "json",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "description": "whether the project is archived or not (boolean, by default true)"
+        },
+        "is_private": {
+          "location": "json",
+          "type": "boolean",
+          "required": false,
+          "description": "whether project is accessible for only project users or for all workspace users (boolean, default true)"
+        },
+        "template": {
+          "location": "json",
+          "type": "boolean",
+          "required": false,
+          "description": "whether the project can be used as a template (boolean, not required)"
+        },
+        "template_id": {
+          "location": "json",
+          "type": "integer",
+          "required": false,
+          "description": "id of the template project used on current project's creation"
+        },
+        "billable": {
+          "location": "json",
+          "type": "boolean",
+          "required": false,
+          "description": "whether the project is billable or not (boolean, default true, available only for pro workspaces)"
         }
       }
     },
@@ -391,33 +366,30 @@
           "required": true,
           "description": "Numeric ID of the workspace"
         },
-        "project_user": {
+        "project_id": {
           "location": "json",
-          "type": "object",
-          "description": "Project User Object",
-          "properties": {
-            "project_id": {
-              "type": "integer",
-              "required": false,
-              "description": "Project ID"
-            },
-            "user_id": {
-              "type": "integer",
-              "required": true,
-              "description": "User ID"
-            },
-            "manager": {
-              "type": "boolean",
-              "required": false,
-              "default": false,
-              "description": "Whether the user will be manager of the project"
-            },
-            "rate": {
-              "type": "numeric",
-              "required": false,
-              "description": "Rate for this project user"
-            }
-          }
+          "type": "integer",
+          "required": false,
+          "description": "Project ID"
+        },
+        "user_id": {
+          "location": "json",
+          "type": "integer",
+          "required": true,
+          "description": "User ID"
+        },
+        "manager": {
+          "location": "json",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "description": "Whether the user will be manager of the project"
+        },
+        "rate": {
+          "location": "json",
+          "type": "numeric",
+          "required": false,
+          "description": "Rate for this project user"
         }
       }
     },
@@ -433,23 +405,18 @@
           "required": true,
           "description": "Numeric ID of the workspace"
         },
-        "project_user": {
+        "manager": {
           "location": "json",
-          "type": "object",
-          "description": "Project User Object",
-          "properties": {
-            "manager": {
-              "type": "boolean",
-              "required": false,
-              "default": false,
-              "description": "admin rights for this project (boolean, default false)"
-            },
-            "rate": {
-              "type": "numeric",
-              "required": false,
-              "description": "hourly rate for the project user (float, not-required, only for pro workspaces) in the currency of the project's client or in workspace default currency."
-            }
-          }
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "description": "admin rights for this project (boolean, default false)"
+        },
+        "rate": {
+          "location": "json",
+          "type": "numeric",
+          "required": false,
+          "description": "hourly rate for the project user (float, not-required, only for pro workspaces) in the currency of the project's client or in workspace default currency."
         }
       }
     },
@@ -485,17 +452,11 @@
           "required": true,
           "description": "Numeric ID of the workspace"
         },
-        "tag": {
+        "name": {
           "location": "json",
-          "type": "object",
-          "description": "Tag Object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "required": true,
-              "description": "The name of the tag (string, required, unique in workspace)"
-            }
-          }
+          "type": "string",
+          "required": true,
+          "description": "The name of the tag (string, required, unique in workspace)"
         }
       }
     },
@@ -517,17 +478,11 @@
           "required": true,
           "description": "Numeric ID of the tag"
         },
-        "tag": {
+        "name": {
           "location": "json",
-          "type": "object",
-          "description": "Tag Object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "required": true,
-              "description": "The name of the tag (string, required, unique in workspace)"
-            }
-          }
+          "type": "string",
+          "required": true,
+          "description": "The name of the tag (string, required, unique in workspace)"
         }
       }
     },
@@ -569,43 +524,36 @@
           "required": true,
           "description": "Numeric ID of the project"
         },
-        "task": {
+        "name": {
           "location": "json",
-          "type": "object",
-          "description": "Task Object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "required": true,
-              "description": "The name of the task (string, required, unique in project)"
-            },
-            "project_id": {
-              "type": "integer",
-              "required": true,
-              "description": "project ID for the task (integer, required)"
-            },
-            "workspace_id": {
-              "type": "integer",
-              "required": false,
-              "description": "Workspace ID"
-            },
-            "user_id": {
-              "type": "integer",
-              "required": false,
-              "description": "Creator ID, if omitted will use requester user ID"
-            },
-            "estimated_seconds": {
-              "type": "integer",
-              "required": false,
-              "description": "estimated duration of task in seconds (integer, not required)"
-            },
-            "active": {
-              "type": "boolean",
-              "required": false,
-              "default": true,
-              "description": "whether the task is done or not (boolean, by default true)"
-            }
-          }
+          "type": "string",
+          "required": true,
+          "description": "The name of the task (string, required, unique in project)"
+        },
+        "project_id": {
+          "location": "json",
+          "type": "integer",
+          "required": true,
+          "description": "project ID for the task (integer, required)"
+        },
+        "user_id": {
+          "location": "json",
+          "type": "integer",
+          "required": false,
+          "description": "Creator ID, if omitted will use requester user ID"
+        },
+        "estimated_seconds": {
+          "location": "json",
+          "type": "integer",
+          "required": false,
+          "description": "estimated duration of task in seconds (integer, not required)"
+        },
+        "active": {
+          "location": "json",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "description": "whether the task is done or not (boolean, by default true)"
         }
       }
     },
@@ -659,33 +607,30 @@
           "required": true,
           "description": "Numeric ID of the task"
         },
-        "task": {
+        "name": {
           "location": "json",
-          "type": "object",
-          "description": "Task Object",
-          "properties": {
-            "name": {
-              "type": "string",
-              "required": false,
-              "description": "The name of the task (string, not required, unique in project)"
-            },
-            "user_id": {
-              "type": "integer",
-              "required": false,
-              "description": "Creator ID, if omitted will use requester user ID"
-            },
-            "estimated_seconds": {
-              "type": "integer",
-              "required": false,
-              "description": "estimated duration of task in seconds (integer, not required)"
-            },
-            "active": {
-              "type": "boolean",
-              "required": false,
-              "default": true,
-              "description": "whether the task is done or not (boolean, by default true)"
-            }
-          }
+          "type": "string",
+          "required": false,
+          "description": "The name of the task (string, not required, unique in project)"
+        },
+        "user_id": {
+          "location": "json",
+          "type": "integer",
+          "required": false,
+          "description": "Creator ID, if omitted will use requester user ID"
+        },
+        "estimated_seconds": {
+          "location": "json",
+          "type": "integer",
+          "required": false,
+          "description": "estimated duration of task in seconds (integer, not required)"
+        },
+        "active": {
+          "location": "json",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "description": "whether the task is done or not (boolean, by default true)"
         }
       }
     },
