@@ -5,7 +5,7 @@ A Toggl API client based on Guzzle PHP
 
 ## Features
 
-* supports complete version 8 API with API Key authentication (thanks to @dirx)
+* supports complete version 9 API with API Key authentication (thanks to @dirx)
 * supports Toggl Report Api v2 (thanks to @dirx)
 * now based on guzzle 7 
 
